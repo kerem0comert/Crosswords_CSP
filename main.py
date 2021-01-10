@@ -1,19 +1,22 @@
-from tabulate import tabulate
 from Square import Square
 from WordPlacer import WordPlacer
+from Board import Board
 from Utils import getWordsOfLength
 
-board = [
+layout = [
     ["","","","",""],
     ["*","*","","*",""],
     ["*","","","",""],
     ["","*","","",""],
-    ["","","","","",""],
+    ["","","","",""],
     ["","*","*","","*"] 
     ]
 
+
 wordList = ["aft","ale","eel","heel","hike","hoses","keel","knot","laser","lee","line","line","sails",
             "sheet","steer","tie"]
+wordList.sort(key=lambda w: len(w), reverse=True)
+#print(wordList)
 
 """Construct the list of placers in the given puzzle. An alternative way to keep the WordPlacers would
 involve only keeping its start square and keeping whether it is horizontal or vertical. That information
@@ -33,5 +36,15 @@ placers = [
     WordPlacer(8,Square(4,0),Square(4,4))
     ]
 
-for p in placers: print(p.id, p.length)
-print(tabulate(board,tablefmt="grid"))
+"""It should be better to start from the WordPlacers with higher length, so that the roots of the 
+CSP Tree are constructed from longer WordPlacers. Intiutively I thought that having shorter WordPlacers
+at the roots will result in more backtracking work to be done, however this idea of mine might be
+irrelevant. In any case I decided to sort the WordPlacers and start with the ones that have the 
+highest length."""
+placers.sort(key=lambda p: p.length, reverse=True)
+
+board = Board(layout, wordList, placers)
+board.fillWordPlacerWithWord(board.placersList[0], board.wordsList[0])
+board.printBoard()
+print(board.getWordsOfLength(3))
+

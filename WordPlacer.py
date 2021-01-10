@@ -1,5 +1,8 @@
 from Square import Square
 
+HORIZONTAL = "horizontal"
+VERTICAL = "vertical"
+
 class WordPlacer:
     def __init__(self, id: int, start: Square, end: Square):
         self.id = id
@@ -8,7 +11,9 @@ class WordPlacer:
         self.length = self.getLength()
         
     def getLength(self):
-        #First check whether it is horizontal or vertical
-        if(self.start.row == self.end.row): 
+        if self.start.row == self.end.row: 
+            self.orientation = HORIZONTAL
             return self.end.column - self.start.column + 1
-        else: return self.end.row - self.start.row + 1
+        else: 
+            self.orientation = VERTICAL
+            return self.end.row - self.start.row + 1
