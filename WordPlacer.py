@@ -1,7 +1,8 @@
 from Point import Point
 
 class WordPlacer:
-    def __init__(self, start: Point, end: Point):
+    def __init__(self, id: int, start: Point, end: Point):
+        self.id = id
         self.start = start
         self.end = end
         
