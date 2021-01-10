@@ -1,6 +1,7 @@
 from tabulate import tabulate
 from Square import Square
 from WordPlacer import WordPlacer
+from Utils import getWordsOfLength
 
 board = [
     ["","","","",""],
@@ -19,7 +20,8 @@ involve only keeping its start square and keeping whether it is horizontal or ve
 would also be enough as a WordPlacer will continue until encountering a "*" obstacle or the end of the board.
 However, this approach would involve for constantly checking if a WordPlacer encounters a "*" in its path.
 As such, I keep the end point square for simplicity as well. By keeping this extra data, I don't need
-to calculate for obstacles each time."""
+to calculate for obstacles each time. Similarly, it also makes sense to keep the length of WordPlacer
+at compile time statically."""
 placers = [
     WordPlacer(1,Square(0,0),Square(0,4)),
     WordPlacer(2,Square(0,2),Square(4,2)),
@@ -30,4 +32,6 @@ placers = [
     WordPlacer(7,Square(3,2),Square(3,4)),
     WordPlacer(8,Square(4,0),Square(4,4))
     ]
+
+for p in placers: print(p.id, p.length)
 print(tabulate(board,tablefmt="grid"))
