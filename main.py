@@ -1,7 +1,7 @@
 from Square import Square
 from WordPlacer import WordPlacer
 from Board import Board
-from Utils import getWordsOfLength
+
 
 layout = [
     ["","","","",""],
@@ -44,7 +44,21 @@ highest length."""
 placers.sort(key=lambda p: p.length, reverse=True)
 
 board = Board(layout, wordList, placers)
-board.fillWordPlacerWithWord(board.placersList[0], board.wordsList[0])
-board.printBoard()
-print(board.getWordsOfLength(3))
+#print(board.placersList[6].length)
+
+for wordPlacer in board.placersList:
+    print(wordPlacer.__dict__)
+    for word in board.getWordsOfLength(wordPlacer.length): #for all words of length = wordPlacer.length
+        if board.canFillPlacerWithWord(wordPlacer, word): 
+            board.filledPlacers.add(wordPlacer)
+            board.remainingWordsList.remove(word)
+            board.printBoard()
+            break
+        #board.printBoard()
+    
+
+
+#board.fillWordPlacerWithWord(board.placersList[0], board.wordsList[0])
+#board.printBoard()
+
 
