@@ -46,15 +46,47 @@ placers.sort(key=lambda p: p.length, reverse=True)
 board = Board(layout, wordList, placers)
 #print(board.placersList[6].length)
 
+
+
+
+def placeWord(wordPlacer, word):
+    print(f"Trying {word}")
+    if board.fillPlacerWithWord(wordPlacer, word, False): 
+        wordPlacer.word = word
+        board.filledPlacers.append(wordPlacer)
+        board.remainingWordsList.remove(word)
+        board.printBoard()
+        print(f"Put {word} to {wordPlacer.id}")
+        return True
+    print(f"{word} could not be placed to {wordPlacer.id}")
+    return False
+
+
 for wordPlacer in board.placersList:
-    print(wordPlacer.__dict__)
-    for word in board.getWordsOfLength(wordPlacer.length): #for all words of length = wordPlacer.length
-        if board.canFillPlacerWithWord(wordPlacer, word): 
-            board.filledPlacers.add(wordPlacer)
-            board.remainingWordsList.remove(word)
-            board.printBoard()
+    print(f"Trying {wordPlacer.id}")
+    isPlaced = False
+    for word in board.getWordsOfLength(wordPlacer.length, []): #for all words of length = wordPlacer.length    
+        if placeWord(wordPlacer, word):
+            isPlaced = True
             break
-        #board.printBoard()
+            
+        
+    while not isPlaced: #none of the remaining words could be placed, need backtracking.
+        excludedWords = []
+        print(f"Nothing could be placed to placer: {wordPlacer.id}")
+        for p in board.filledPlacers: print(p.id, end = ",")
+        print("\n")
+        lastWordPlacer = board.filledPlacers.pop() #get the last filled WordPlacer
+        print(f"Backtracking to {lastWordPlacer.id} with word {lastWordPlacer.word}")
+        excludedWords.append(lastWordPlacer.word)
+        lastWordPlacer.word = None
+        board.clearWordPlacer(lastWordPlacer)
+        board.printBoard()
+        for word in board.getWordsOfLength(lastWordPlacer.length, excludedWords):
+            if placeWord(wordPlacer, word): 
+                isPlaced = True
+                break
+        #board.printBoard()"""
     
 
 

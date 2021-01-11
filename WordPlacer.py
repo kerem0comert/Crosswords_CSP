@@ -9,6 +9,7 @@ class WordPlacer:
         self.start = start
         self.end = end
         self.length = self.getLength()
+        self.word = None #no word is placed initially
         
     def getLength(self):
         if self.start.row == self.end.row: 
