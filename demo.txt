@@ -1,0 +1,390 @@
+PS C:\Users\kerem\Desktop\SEMESTER\462-AI\A2> python main.py
+Trying 0
+Trying hoses
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * |   | * |   |
++---+---+---+---+---+
+| * |   |   |   |   |
++---+---+---+---+---+
+|   | * |   |   |   |
++---+---+---+---+---+
+|   |   |   |   |   |
++---+---+---+---+---+
+|   | * | * |   | * |
++---+---+---+---+---+
+Put hoses to 0
+Trying 1
+Trying laser
+laser could not be placed to 1
+Trying sails
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * |   |
++---+---+---+---+---+
+| * |   | i |   |   |
++---+---+---+---+---+
+|   | * | l |   |   |
++---+---+---+---+---+
+|   |   | s |   |   |
++---+---+---+---+---+
+|   | * | * |   | * |
++---+---+---+---+---+
+Put sails to 1
+Trying 2
+Trying laser
+laser could not be placed to 2
+Trying steer
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * |   | i |   | e |
++---+---+---+---+---+
+|   | * | l |   | e |
++---+---+---+---+---+
+|   |   | s |   | r |
++---+---+---+---+---+
+|   | * | * |   | * |
++---+---+---+---+---+
+Put steer to 2
+Trying 3
+Trying line
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | l | i | n | e |
++---+---+---+---+---+
+|   | * | l |   | e |
++---+---+---+---+---+
+|   |   | s |   | r |
++---+---+---+---+---+
+|   | * | * |   | * |
++---+---+---+---+---+
+Put line to 3
+Trying 4
+Trying keel
+keel could not be placed to 4
+Trying heel
+heel could not be placed to 4
+Trying knot
+knot could not be placed to 4
+Trying hike
+hike could not be placed to 4
+Nothing could be placed to placer: 4
+
+
+Backtracking to 3 that had line
+Cleared line from pos 3
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * |   | i |   | e |
++---+---+---+---+---+
+|   | * | l |   | e |
++---+---+---+---+---+
+|   |   | s |   | r |
++---+---+---+---+---+
+|   | * | * |   | * |
++---+---+---+---+---+
+Trying keel
+keel could not be placed to 3
+Trying heel
+heel could not be placed to 3
+Trying knot
+knot could not be placed to 3
+Trying hike
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+|   | * | l |   | e |
++---+---+---+---+---+
+|   |   | s |   | r |
++---+---+---+---+---+
+|   | * | * |   | * |
++---+---+---+---+---+
+Put hike to 3
+Trying 4
+Trying line
+line could not be placed to 4
+Trying keel
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+|   | * | l | e | e |
++---+---+---+---+---+
+|   |   | s | e | r |
++---+---+---+---+---+
+|   | * | * | l | * |
++---+---+---+---+---+
+Put keel to 4
+Trying 5
+Trying eel
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| e | * | l | e | e |
++---+---+---+---+---+
+| e |   | s | e | r |
++---+---+---+---+---+
+| l | * | * | l | * |
++---+---+---+---+---+
+Put eel to 5
+Trying 6
+Trying tie
+tie could not be placed to 6
+Trying lee
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| e | * | l | e | e |
++---+---+---+---+---+
+| e |   | s | e | r |
++---+---+---+---+---+
+| l | * | * | l | * |
++---+---+---+---+---+
+Put lee to 6
+Trying 7
+Trying laser
+laser could not be placed to 7
+Trying sheet
+sheet could not be placed to 7
+Nothing could be placed to placer: 7
+
+
+Backtracking to 6 that had lee
+Cleared lee from pos 6
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| e | * | l | e | e |
++---+---+---+---+---+
+| e |   | s | e | r |
++---+---+---+---+---+
+| l | * | * | l | * |
++---+---+---+---+---+
+Trying tie
+tie could not be placed to 6
+Trying ale
+ale could not be placed to 6
+Trying aft
+aft could not be placed to 6
+Nothing could be placed to placer: 6
+
+
+Backtracking to 5 that had eel
+Cleared eel from pos 5
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+|   | * | l | e | e |
++---+---+---+---+---+
+|   |   | s | e | r |
++---+---+---+---+---+
+|   | * | * | l | * |
++---+---+---+---+---+
+Trying tie
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| t | * | l | e | e |
++---+---+---+---+---+
+| i |   | s | e | r |
++---+---+---+---+---+
+| e | * | * | l | * |
++---+---+---+---+---+
+Put tie to 5
+Trying 6
+Trying eel
+eel could not be placed to 6
+Trying lee
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| t | * | l | e | e |
++---+---+---+---+---+
+| i |   | s | e | r |
++---+---+---+---+---+
+| e | * | * | l | * |
++---+---+---+---+---+
+Put lee to 6
+Trying 7
+Trying laser
+laser could not be placed to 7
+Trying sheet
+sheet could not be placed to 7
+Nothing could be placed to placer: 7
+
+
+Backtracking to 6 that had lee
+Cleared lee from pos 6
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| t | * | l | e | e |
++---+---+---+---+---+
+| i |   | s | e | r |
++---+---+---+---+---+
+| e | * | * | l | * |
++---+---+---+---+---+
+Trying eel
+eel could not be placed to 6
+Trying ale
+ale could not be placed to 6
+Trying aft
+aft could not be placed to 6
+Nothing could be placed to placer: 6
+
+
+Backtracking to 5 that had tie
+Cleared tie from pos 5
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+|   | * | l | e | e |
++---+---+---+---+---+
+|   |   | s | e | r |
++---+---+---+---+---+
+|   | * | * | l | * |
++---+---+---+---+---+
+Trying lee
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| l | * | l | e | e |
++---+---+---+---+---+
+| e |   | s | e | r |
++---+---+---+---+---+
+| e | * | * | l | * |
++---+---+---+---+---+
+Put lee to 5
+Trying 6
+Trying eel
+eel could not be placed to 6
+Trying tie
+tie could not be placed to 6
+Trying ale
+ale could not be placed to 6
+Trying aft
+aft could not be placed to 6
+Nothing could be placed to placer: 6
+
+
+Backtracking to 5 that had lee
+Cleared lee from pos 5
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+|   | * | l | e | e |
++---+---+---+---+---+
+|   |   | s | e | r |
++---+---+---+---+---+
+|   | * | * | l | * |
++---+---+---+---+---+
+Trying ale
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| a | * | l | e | e |
++---+---+---+---+---+
+| l |   | s | e | r |
++---+---+---+---+---+
+| e | * | * | l | * |
++---+---+---+---+---+
+Put ale to 5
+Trying 6
+Trying eel
+eel could not be placed to 6
+Trying tie
+tie could not be placed to 6
+Trying lee
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| a | * | l | e | e |
++---+---+---+---+---+
+| l |   | s | e | r |
++---+---+---+---+---+
+| e | * | * | l | * |
++---+---+---+---+---+
+Put lee to 6
+Trying 7
+Trying laser
++---+---+---+---+---+
+| h | o | s | e | s |
++---+---+---+---+---+
+| * | * | a | * | t |
++---+---+---+---+---+
+| * | h | i | k | e |
++---+---+---+---+---+
+| a | * | l | e | e |
++---+---+---+---+---+
+| l | a | s | e | r |
++---+---+---+---+---+
+| e | * | * | l | * |
++---+---+---+---+---+
+Put laser to 7
+PS C:\Users\kerem\Desktop\SEMESTER\462-AI\A2>

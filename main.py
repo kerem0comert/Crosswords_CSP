@@ -93,12 +93,8 @@ while currentPos < len(board.placersList):
                 #board.remainingWordsList.add(lastWordPlacer.word)
                 lastWordPlacer.word = newWord
                 break
-        #board.printBoard()"""
    
     
 
-
-#board.fillWordPlacerWithWord(board.placersList[0], board.wordsList[0])
-#board.printBoard()
 
 

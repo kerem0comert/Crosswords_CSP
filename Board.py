@@ -1,6 +1,6 @@
 from WordPlacer import WordPlacer, HORIZONTAL, VERTICAL
 from tabulate import tabulate
-from os import system
+#from os import system
 from time import sleep
 from copy import deepcopy
 
@@ -11,6 +11,8 @@ class Board:
         self.placersList = placersList
         self.filledPlacers = []
         
+    """clearing all of the letters in a given wordPlacer. Need to check for clashes, as I 
+    wouldn't want to clear letters that are clashing with other wordPlacers."""
     def clearWordPlacer(self, wordPlacer: WordPlacer):
         if wordPlacer.orientation == HORIZONTAL:
             placedVerticals = [p for p in self.filledPlacers if p.orientation == VERTICAL]
@@ -18,7 +20,7 @@ class Board:
                 isClashing = False
                 for p in placedVerticals:    
                     if (p.start.column == column and p.start.row <= wordPlacer.start.row and 
-                        p.end.row >= wordPlacer.start.row):
+                        p.end.row >= wordPlacer.start.row): #This square is the clashing point.
                         isClashing = True
                         break
                 if not isClashing: self.layout[wordPlacer.start.row][column] = ""
@@ -28,7 +30,7 @@ class Board:
                 isClashing = False
                 for p in placedHorizontals:    
                     if (p.start.row == row and p.start.column <= wordPlacer.start.column and 
-                        p.end.column >= wordPlacer.start.column):
+                        p.end.column >= wordPlacer.start.column): #This square is the clashing point.
                         isClashing = True
                         break
                 if not isClashing: self.layout[row][wordPlacer.start.column] = ""
