@@ -75,24 +75,25 @@ while currentPos < len(board.placersList):
             break
             
     while not isPlaced: #none of the remaining words could be placed, need backtracking.
-        excludedWords = []
-        print(f"Nothing could be placed to placer: {currentPlacer.id}")
+        print(f"Nothing could be placed to placer: {currentPos}")
         for p in board.filledPlacers: print(p.id, end = ",")
         print("\n")
         lastWordPlacer = board.filledPlacers.pop() #get the last filled WordPlacer
         currentPos = lastWordPlacer.id
         print(f"Backtracking to {lastWordPlacer.id} that had {lastWordPlacer.word}")
-        excludedWords.append(lastWordPlacer.word)
-        board.clearWordPlacer(lastWordPlacer)
+        lastWordPlacer.excludedWords.add(lastWordPlacer.word)
+        board.clearWordPlacer(lastWordPlacer)      
         print(f"Cleared {lastWordPlacer.word} from pos {lastWordPlacer.id}")
+        board.remainingWordsList.add(lastWordPlacer.word)
+        lastWordPlacer.word = None  
         board.printBoard()
-        for word in board.getWordsOfLength(lastWordPlacer.length, excludedWords):      
-            if placeWord(lastWordPlacer, word): 
+        for newWord in board.getWordsOfLength(lastWordPlacer.length, lastWordPlacer.excludedWords):      
+            if placeWord(lastWordPlacer, newWord): 
                 isPlaced = True
                 currentPos = lastWordPlacer.id + 1
                 print(f"curr: {currentPos}")
-                board.remainingWordsList.add(lastWordPlacer.word)
-                lastWordPlacer.word = word
+                #board.remainingWordsList.add(lastWordPlacer.word)
+                lastWordPlacer.word = newWord
                 break
         #board.printBoard()"""
    

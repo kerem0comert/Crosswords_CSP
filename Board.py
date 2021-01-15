@@ -2,6 +2,7 @@ from WordPlacer import WordPlacer, HORIZONTAL, VERTICAL
 from tabulate import tabulate
 from os import system
 from time import sleep
+from copy import deepcopy
 
 class Board:
     def __init__(self, layout, wordsList, placersList):
@@ -35,28 +36,32 @@ class Board:
         
 
     def fillPlacerWithWord(self, wordPlacer: WordPlacer, word, override: bool):
-        tempLayout = self.layout 
+        tempLayout = deepcopy(self.layout) #IMPORTANT! Assigning by value, not by reference. 
         isPossible = True
         if len(word) != wordPlacer.length: 
             raise Exception("The length of the word is different from the wordPlacer")
         if wordPlacer.orientation == HORIZONTAL:
-            for index in range(wordPlacer.length):          
+            wordIndex = 0    
+            for column in range(wordPlacer.start.column, wordPlacer.end.column + 1):      
                 if (not override and not self.isSquareAvailable(
-                    tempLayout[wordPlacer.start.row][index], word[index])):
+                    tempLayout[wordPlacer.start.row][column], word[wordIndex])):
                     isPossible = False
                     break
-                tempLayout[wordPlacer.start.row][index] = word[index]
+                tempLayout[wordPlacer.start.row][column] = word[wordIndex]
+                wordIndex += 1
         else:
-            for index in range(wordPlacer.length):
+            wordIndex = 0
+            for row in range(wordPlacer.start.row, wordPlacer.end.row + 1):
                 if (not override and not self.isSquareAvailable
-                    (tempLayout[index][wordPlacer.start.column], word[index])):
+                    (tempLayout[row][wordPlacer.start.column], word[wordIndex])):
                     isPossible = False
                     break
-                tempLayout[index][wordPlacer.start.column] = word[index]     
+                tempLayout[row][wordPlacer.start.column] = word[wordIndex] 
+                wordIndex += 1    
         
         #if the filling was a success, now we have the new board.   
         if isPossible: 
-            self.layout = tempLayout
+            self.layout = deepcopy(tempLayout)
             return True
         else: return False
         
