@@ -16,7 +16,7 @@ layout = [
 wordList = ["aft","ale","eel","heel","hike","hoses","keel","knot","laser","lee","line","line","sails",
             "sheet","steer","tie"]
 wordList.sort(key=lambda w: len(w), reverse=True)
-#print(wordList)
+
 
 """Construct the list of placers in the given puzzle. An alternative way to keep the WordPlacers would
 involve only keeping its start square and keeping whether it is horizontal or vertical. That information
@@ -76,7 +76,6 @@ while currentPos < len(board.placersList):
             
     while not isPlaced: #none of the remaining words could be placed, need backtracking.
         print(f"Nothing could be placed to placer: {currentPos}")
-        for p in board.filledPlacers: print(p.id, end = ",")
         print("\n")
         lastWordPlacer = board.filledPlacers.pop() #get the last filled WordPlacer
         currentPos = lastWordPlacer.id
@@ -91,7 +90,6 @@ while currentPos < len(board.placersList):
             if placeWord(lastWordPlacer, newWord): 
                 isPlaced = True
                 currentPos = lastWordPlacer.id + 1
-                print(f"curr: {currentPos}")
                 #board.remainingWordsList.add(lastWordPlacer.word)
                 lastWordPlacer.word = newWord
                 break

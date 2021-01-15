@@ -78,7 +78,7 @@ class Board:
     def printBoard(self): 
         #system("cls")
         print(tabulate(self.layout,tablefmt="grid"))
-        sleep(1)
+        #sleep(0.5)
 
         
 
