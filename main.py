@@ -80,16 +80,19 @@ while currentPos < len(board.placersList):
         for p in board.filledPlacers: print(p.id, end = ",")
         print("\n")
         lastWordPlacer = board.filledPlacers.pop() #get the last filled WordPlacer
-        currentPos -= 1
+        currentPos = lastWordPlacer.id
         print(f"Backtracking to {lastWordPlacer.id} that had {lastWordPlacer.word}")
         excludedWords.append(lastWordPlacer.word)
-        lastWordPlacer.word = None
         board.clearWordPlacer(lastWordPlacer)
+        print(f"Cleared {lastWordPlacer.word} from pos {lastWordPlacer.id}")
         board.printBoard()
         for word in board.getWordsOfLength(lastWordPlacer.length, excludedWords):      
             if placeWord(lastWordPlacer, word): 
                 isPlaced = True
                 currentPos = lastWordPlacer.id + 1
+                print(f"curr: {currentPos}")
+                board.remainingWordsList.add(lastWordPlacer.word)
+                lastWordPlacer.word = word
                 break
         #board.printBoard()"""
    

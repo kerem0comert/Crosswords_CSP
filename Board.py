@@ -1,4 +1,4 @@
-from WordPlacer import WordPlacer, HORIZONTAL
+from WordPlacer import WordPlacer, HORIZONTAL, VERTICAL
 from tabulate import tabulate
 from os import system
 from time import sleep
@@ -12,11 +12,26 @@ class Board:
         
     def clearWordPlacer(self, wordPlacer: WordPlacer):
         if wordPlacer.orientation == HORIZONTAL:
-            for index in range(wordPlacer.length):
-                self.layout[wordPlacer.start.row][index] = ""
+            placedVerticals = [p for p in self.filledPlacers if p.orientation == VERTICAL]
+            for column in range(wordPlacer.start.column, wordPlacer.end.column + 1):
+                isClashing = False
+                for p in placedVerticals:    
+                    if (p.start.column == column and p.start.row <= wordPlacer.start.row and 
+                        p.end.row >= wordPlacer.start.row):
+                        isClashing = True
+                        break
+                if not isClashing: self.layout[wordPlacer.start.row][column] = ""
         else:
-            for index in range(wordPlacer.length):
-                self.layout[index][wordPlacer.start.column] = ""
+            placedHorizontals = [p for p in self.filledPlacers if p.orientation == HORIZONTAL]
+            for row in range(wordPlacer.start.row, wordPlacer.end.row + 1):
+                isClashing = False
+                for p in placedHorizontals:    
+                    if (p.start.row == row and p.start.column <= wordPlacer.start.column and 
+                        p.end.column >= wordPlacer.start.column):
+                        isClashing = True
+                        break
+                if not isClashing: self.layout[row][wordPlacer.start.column] = ""
+            
         
 
     def fillPlacerWithWord(self, wordPlacer: WordPlacer, word, override: bool):
