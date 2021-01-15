@@ -1,6 +1,7 @@
 from Square import Square
 from WordPlacer import WordPlacer
 from Board import Board
+import sys
 
 
 layout = [
@@ -81,6 +82,8 @@ while currentPos < len(board.placersList):
         currentPos = lastWordPlacer.id
         print(f"Backtracking to {lastWordPlacer.id} that had {lastWordPlacer.word}")
         lastWordPlacer.excludedWords.add(lastWordPlacer.word)
+        print(f"len: {len(lastWordPlacer.excludedWords)}, ")
+        print(f"{lastWordPlacer.id}: {lastWordPlacer.excludedWords}")
         board.clearWordPlacer(lastWordPlacer)      
         print(f"Cleared {lastWordPlacer.word} from pos {lastWordPlacer.id}")
         board.remainingWordsList.add(lastWordPlacer.word)
@@ -93,7 +96,10 @@ while currentPos < len(board.placersList):
                 #board.remainingWordsList.add(lastWordPlacer.word)
                 lastWordPlacer.word = newWord
                 break
-   
+
+
+
+
     
 
 

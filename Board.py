@@ -10,6 +10,7 @@ class Board:
         self.remainingWordsList = set(wordsList)
         self.placersList = placersList
         self.filledPlacers = []
+
         
     """clearing all of the letters in a given wordPlacer. Need to check for clashes, as I 
     wouldn't want to clear letters that are clashing with other wordPlacers."""
@@ -81,6 +82,7 @@ class Board:
         #system("cls")
         print(tabulate(self.layout,tablefmt="grid"))
         #sleep(0.5)
+        pass
 
         
 

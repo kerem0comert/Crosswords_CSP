@@ -11,6 +11,7 @@ class WordPlacer:
         self.length = self.getLength()
         self.word = None #no word is placed initially
         self.excludedWords = set()
+        self.visited = False
         
     def getLength(self):
         if self.start.row == self.end.row: 
